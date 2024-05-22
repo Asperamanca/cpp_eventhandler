@@ -21,4 +21,4 @@ When reading the code, there are two parts:
 1) Code inside the "common" folder as well as files with extension ".qml" only exist to make the program work. They are not part of the refactoring process, and I wrote then as simple as possible to get the job done. I also would not be surprised if you found a few bugs in that part of the program, and the implementation is certainly not optimal.  
 2) The code to look at closely is inside the folders starting with two digits ("01_..."). This is where I want to show different approaches solving the same problem, and what tradeoffs they bring.
 # How to run the code
-To run the examples, you need Qt 6.7.0 or newer.
+To run the examples, you need a C++20-enabled compiler and Qt 6.7.0 or newer.
