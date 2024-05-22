@@ -18,5 +18,7 @@ The code I refactor and refine is the central GUI event handler for a simple app
 Both Lasso and Drag-Move can be turned on and off. In this example, I do this via command line arguments "--edit" (allows drag-move) and "--lasso" (allows lasso). In a real-world use case, assue we could turn some features on or off at runtime (e.g. depending on some mode the user can switch via UI).
 
 When reading the code, there are two parts:
+
   a) Code inside the "common" folder as well as files with extension ".qml" only exist to make the program work. They are not part of the refactoring process, and I wrote then as simple as possible to get the job done. I also would not be surprised if you found a few bugs in that part of the program, and the implementation is certainly not optimal.
+  
   b) The code to look at closely is inside the folders starting with two digits ("01_..."). This is where I want to show different approaches solving the same problem, and what tradeoffs they bring.
