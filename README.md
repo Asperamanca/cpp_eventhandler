@@ -40,3 +40,11 @@ QML is a declarative language in a way similar to HTML. You can basically state:
 ## Documentation in the code
 Things are explained as comments, typically above the code I am talking about.
 - Always start reading in main.cpp. The text there will then tell you where to continue reading.
+- You can always find the main entry points in comments that start like this: "//##"
+- Comments without any special prefix explain what I am doing, and why
+- NAMING: In a few places, I explain my scheme of naming things, in order to make the code easier to read
+- ISSUE: Such comments mark an issue that we want to address in a following refinement of the code
+- IMPROVEMENT: In such comments, I mention thins we improved in the latest code refinements
+- QT: Notes about things related to the Qt framework
+## Wrap-up
+When you are done reading the code, you can find a wrap-up discussion in wrapup.md
