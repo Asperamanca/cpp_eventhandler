@@ -27,7 +27,8 @@ When reading the code, there are two parts:
 1) Code inside the "common" folder as well as files with extension ".qml" only exist to make the program work. They are not part of the refactoring process, and I wrote then as simple as possible to get the job done. I also would not be surprised if you found a few bugs in that part of the program, and the implementation is certainly not optimal.  
 2) The code to look at closely is inside the folders starting with two digits ("01_..."). This is where I want to show different approaches solving the same problem, and what tradeoffs they bring.
 ## How to run the code
-To run the examples, you need a C++20-enabled compiler and Qt 6.7.0 or newer. Nevertheless, this is NOT an example about Qt, it's just the framework I happen to use. (Still, I make a few remarks about certain usages of Qt types, but that's side notes and not essential).
+To build the examples, you need a C++20-enabled compiler and Qt 6.7.0 or newer. Nevertheless, this is NOT an example about Qt, it's just the framework I happen to use. (Still, I make a few remarks about certain usages of Qt types, but that's side notes and not essential).
+When you run the code, notice that you HAVE to add command line switches "--edit --lasso" to see all features in action!
 ### A word on Qt
 (I hope) you don't need to understand QML or Qt Quick in order to follow my code. But here is a little primer to make it easier for you:
 QML is a declarative language in a way similar to HTML. You can basically state: "There is a rectangle at position x/y which has size w/h and color 'red'". The objects created in such a way always (logically) form a tree:
