@@ -35,6 +35,7 @@ QML is a declarative language in a way similar to HTML. You can basically state:
 - There is a single root object attached to the view (=the windows)
 - This root object may have children, and they in turn may have children.
  If I start at the root object, I can recursively walk the whole tree to find every visual object.
+Everything else is explained as we go along.
 ## Caveats
 - For readability, I don't use namespaces. In a real project, this could easily cause naming conflicts
 - I am not a cmake expert. Things work, but please don't take my cmake files as an example on "how to do it right"
