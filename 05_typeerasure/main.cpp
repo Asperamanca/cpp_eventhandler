@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 //  best to use the simplest approach possible. Here, I would probably go for
 //  "Functions" or maybe even "The big switch".
 // If you are at the other end of the spectrum, and expect your code to live long
-//  and grow bigger and bigger, you need something that can reduce added compexity.
+//  and grow bigger and bigger, you need something that can reduce added complexity.
 //  Here, the final "Type erasure" soltion is likely better.
 // If you are somewhere in-between, you may choose the "Inheritance" solution.
 //  This is what I mean when I write "it depends...".
