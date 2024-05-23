@@ -2,7 +2,7 @@
 You have now seen a code refinement from single function with a big switch to separate functions, separate classes, abstraction via base class and finally a flexible approach using type erasure.
 The order suggests that the first implementation is the worst, and the last implementation is the best. But it's not that simple. Because, as so often the answer is "it depends...".
 In every refinement, we actually increased the total amount of code. In most refinedments, we added new files. This is a source of complexity that should be taken into account.
-## IT...DEPENDS?
+## It...depends?
 So when I say "it depends..." you fairly ask "...on what?"
 Let me try to answer in this way:
 In each refinement, the code (as it is) has become more complex IN TOTAL. At the same time, we have often reduced complexity LOCALLY. And also, our changes will reduce the ADDITIONAL complexity required to add new event handlers and event handler types.
