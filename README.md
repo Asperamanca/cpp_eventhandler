@@ -47,4 +47,4 @@ Things are explained as comments, typically above the code I am talking about.
 - IMPROVEMENT: In such comments, I mention thins we improved in the latest code refinements
 - QT: Notes about things related to the Qt framework
 ## Wrap-up
-When you are done reading the code, you can find a wrap-up discussion in wrapup.md
+When you are done reading the code, you can find a wrap-up discussion in [WRAPUP.md](WRAPUP.md)
