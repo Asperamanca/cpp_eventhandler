@@ -33,6 +33,9 @@ private:
     CDragMoveInputRule m_DragMoveRule;
     CLassoInputRule m_LassoRule;
     CSelectionInputRule m_SelectionRule;
+
+    //## ISSUE: The input rules are hard-wired into the central CWindowEventFilter class
+    //  There is no easy way to customize what input rules I want (e.g. for testing)
 };
 
 #endif // WINDOWEVENTFILTER_H
