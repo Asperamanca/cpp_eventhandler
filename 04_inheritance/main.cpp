@@ -7,12 +7,14 @@
 //## 04 - INHERITANCE
 //
 // Our separation into classes brought some improvements again,
-//  but we saw a couple more issues:
+//  but we saw a few more issues:
 // 1) Passing multiple parameters of the same type to the event handler
 //      functions is dangerous
 // 2) While the code is no longer in CWindowEventFilter, that class still
 //      knows about every feature implemented, and uses and ugly "if else"
 //      ladder to call them in order
+// 3) Also, the input rules to use are hardwired in CWindowEventFilter,
+//      we cannot change them easily e.g. for testing.
 // The first point is actually pretty easy to fix: We create a simple type
 //  that contains all the information we want to pass to the event handler
 //  functions (see inputinfo.h/cpp)
