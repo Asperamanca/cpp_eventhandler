@@ -2,6 +2,7 @@
 We start with implementing everything in a big switch.
 ## Dependency diagram
 ![01_dependency_bigswitch](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/fe5a87c6-007d-49e1-91e3-bf3711aab7db)
+
 The dependencies are pretty simple: main.cpp uses windoweventfilter.cpp, and from there we use everything else. The grey boxes are code that's outside of the scope of our refactoring. But it's still code that's needed to implement the application's behavior, so we need to know who depends on it.
 As you can see, a single file depends on basically everything.
 ## Issues
