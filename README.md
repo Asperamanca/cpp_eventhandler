@@ -17,7 +17,7 @@ The code I refactor and refine is the central GUI event handler for a simple app
 
 Both Lasso and Drag-Move can be turned on and off. In this example, I do this via command line arguments "--edit" (allows drag-move) and "--lasso" (allows lasso). In a real-world use case, assue we could turn some features on or off at runtime (e.g. depending on some mode the user can switch via UI).
 ### Refinement steps
-1. "The big switch": This is where we start. Everything is in a single function in a big switch
+1. "[The big switch](01_bigSwitch/BIGSWITCH.md)": This is where we start. Everything is in a single function in a big switch
 2. "Functions": Everything is still in a single file, but at least separated into functions
 3. "Classes": Things get split up into multiple files, but I don't yet use any abstractions to avoid code duplication
 4. "Inheritance": I use classic inheritance to make some central code more generic and less repetitive
