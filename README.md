@@ -20,7 +20,7 @@ Both Lasso and Drag-Move can be turned on and off. In this example, I do this vi
 1. "[The big switch](01_bigSwitch/BIGSWITCH.md)": This is where we start. Everything is in a single function in a big switch
 2. "[Functions](02_functions/FUNCTIONS.md)": Everything is still in a single file, but at least separated into functions
 3. "[Classes](03_classes/CLASSES.md)": Things get split up into multiple files, but I don't yet use any abstractions to avoid code duplication
-4. "Inheritance": I use classic inheritance to make some central code more generic and less repetitive
+4. "[Inheritance](04_inheritance/INHERITANCE.md)": I use classic inheritance to make some central code more generic and less repetitive
 5. "Type erasure": I add flexibility for future extension of the code using a combination of type erasure, multiple inheritance and C++20 concepts
 ## How to read the code
 When reading the code, there are two parts:
