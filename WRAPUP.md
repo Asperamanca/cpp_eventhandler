@@ -11,3 +11,12 @@ In each refinement, the code (as it is) has become more complex IN TOTAL. At the
 - If you are somewhere in-between, you may choose the "Inheritance" solution.
 
 This is what I mean when I write "it depends...".
+
+## Material listed in code
+TODO
+
+## Further material
+-) What are regular types, and why should I care? - "Regular, Revisited" by Victor Ciura
+-) Why should I care about value semantics? - "Value Semantics: Safety, Independence, Projection & Future of Programming" by Dave Abrahams
+-) Advice on type-safe programming: "Typically C++, But why?" by Björn Fahller
+-) Just generally recommended: "Coping with other people's C++ code" by Laura Savino
