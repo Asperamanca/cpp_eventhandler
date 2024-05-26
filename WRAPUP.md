@@ -16,7 +16,7 @@ This is what I mean when I write "it depends...".
 TODO
 
 ## Further material
--) What are regular types, and why should I care? - "Regular, Revisited" by Victor Ciura
--) Why should I care about value semantics? - "Value Semantics: Safety, Independence, Projection & Future of Programming" by Dave Abrahams
--) Advice on type-safe programming: "Typically C++, But why?" by Björn Fahller
--) Just generally recommended: "Coping with other people's C++ code" by Laura Savino
+- What are regular types, and why should I care? - "Regular, Revisited" by Victor Ciura
+- Why should I care about value semantics? - "Value Semantics: Safety, Independence, Projection & Future of Programming" by Dave Abrahams
+- Advice on type-safe programming: "Typically C++, But why?" by Björn Fahller
+- Just generally recommended: "Coping with other people's C++ code" by Laura Savino
