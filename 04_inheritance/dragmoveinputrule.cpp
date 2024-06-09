@@ -5,7 +5,7 @@
 #include "inputinfo.h"
 
 CDragMoveInputRule::CDragMoveInputRule()
-    : CAbstractInputRule(sm_pRuleId)
+    : CInputRule(sm_pRuleId)
 {
 }
 

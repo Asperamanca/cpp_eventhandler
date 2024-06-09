@@ -50,7 +50,7 @@
 //  That will allow us to treat the event handlers (which I now call "input rules")
 //  in a generic fashion.
 //
-// This time, there are som changes in main(), so please read on here...
+// This time, there are some changes in main(), so please read on here...
 
 int main(int argc, char *argv[])
 {

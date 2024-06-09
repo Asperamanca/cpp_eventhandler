@@ -1,11 +1,11 @@
 #ifndef SELECTIONINPUTRULE_H
 #define SELECTIONINPUTRULE_H
 
-#include "abstractinputrule.h"
+#include "inputrule.h"
 #include <QPointer>
 class QQuickItem;
 
-class CSelectionInputRule : public CAbstractInputRule
+class CSelectionInputRule : public CInputRule
 {
 public:
     static constexpr const char* const sm_pRuleId = "SelectionRule";

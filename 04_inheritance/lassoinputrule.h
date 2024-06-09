@@ -1,12 +1,12 @@
 #ifndef LASSOINPUTRULE_H
 #define LASSOINPUTRULE_H
 
-#include "abstractinputrule.h"
+#include "inputrule.h"
 #include <QPointer>
 #include <lassoselectionoperation.h>
 class QQuickItem;
 
-class CLassoInputRule : public CAbstractInputRule
+class CLassoInputRule : public CInputRule
 {
 public:
     static constexpr const char* const sm_pRuleId = "LassoRule";

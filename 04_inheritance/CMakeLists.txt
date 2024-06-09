@@ -43,8 +43,9 @@ qt_add_qml_module(04_inheritance
         SOURCES inputrule.h
         SOURCES inputinfo.h
         SOURCES inputrulemanager.h inputrulemanager.cpp
-        SOURCES abstractinputrule.h abstractinputrule.cpp
+        SOURCES
         SOURCES inputrulemanagerfactory.h inputrulemanagerfactory.cpp
+        SOURCES inputrule.cpp
 )
 
 target_link_libraries(04_inheritance PRIVATE Qt${QT_VERSION_MAJOR}::Core)

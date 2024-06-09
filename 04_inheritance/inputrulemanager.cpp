@@ -3,7 +3,7 @@
 #include <ranges>
 
 
-void CInputRuleManager::appendInputRule(std::unique_ptr<IInputRule> pInputRule)
+void CInputRuleManager::appendInputRule(std::unique_ptr<CInputRule> pInputRule)
 {
     m_InputRules.emplace_back(std::move(pInputRule));
 }
@@ -13,7 +13,7 @@ void CInputRuleManager::setRuleDisabled(const QString& ruleId, bool bDisabled)
     // First we try to find the rule via it's ruleId
     // This is not terribly efficient, if we use this a lot, we could create
     //  a separate map or hash table with faster lookup (I left that out for simplicity)
-    auto iter = std::ranges::find_if(m_InputRules,[&ruleId](const std::unique_ptr<IInputRule>& pRule)
+    auto iter = std::ranges::find_if(m_InputRules,[&ruleId](const std::unique_ptr<CInputRule>& pRule)
                                     {
                                         if ( ! pRule) { return false;}          // nullptr check
                                         return (pRule->getRuleId() == ruleId);  // check for matching id
@@ -74,7 +74,7 @@ auto getEnabledRules(const std::vector<IOwnedInputRulePtr>& inputRules)
            std::views::filter([](const IOwnedInputRulePtr& pInputRule){return ! pInputRule->isDisabled();});
 }
 
-}
+} // namespace
 
 bool CInputRuleManager::passSinglePointerEventThroughRules(QSinglePointEvent& event, const CInputInfo& inputInfo)
 {

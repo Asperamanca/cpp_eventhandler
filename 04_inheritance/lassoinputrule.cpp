@@ -6,7 +6,7 @@
 
 
 CLassoInputRule::CLassoInputRule()
-    : CAbstractInputRule(sm_pRuleId)
+    : CInputRule(sm_pRuleId)
 {
 }
 

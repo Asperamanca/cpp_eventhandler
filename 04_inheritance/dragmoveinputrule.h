@@ -1,18 +1,18 @@
 #ifndef DRAGMOVEINPUTRULE_H
 #define DRAGMOVEINPUTRULE_H
 
-#include "abstractinputrule.h"
+#include "inputrule.h"
 #include <QPointer>
 #include <QPointF>
 #include <itemdragoperation.h>
 class QQuickItem;
 
 
-//## CDragMoveInputRule inherits from CAbstractInputRule, so it uses
+//## CDragMoveInputRule inherits from CInputRule, so it uses
 //  the enable/disable and rule ID implemented there
 // Apart from that (and the name of the event handler functions), not
 //  a lot has changed. Let's look at the implementation...
-class CDragMoveInputRule : public CAbstractInputRule
+class CDragMoveInputRule : public CInputRule
 {
 public:
     static constexpr const char* const sm_pRuleId = "DragMoveRule";

@@ -7,37 +7,31 @@ class QSinglePointEvent;
 class QKeyEvent;
 class CInputInfo;
 
-//## This is an interface class (also called protocol class)
-//  It describes an interface, but no implementations at all
-// Interface classes are very useful as most basic base classes because
-//  1) They help you to separate concerns ("what is the interface" vs.
-//      "what is the implementation"). This also typically makes them easy to read.
-//  2) They typically draw few dependencies (because they don't need any implementation,
-//      just the types of the interfaces). This makes them easier to use in many places,
-//      since they will not "glue your project together with fat dependencies"
-//  3) They make writing unit test easier, as you can typically write a mockup implementation
-//      that helps your test cases
-//  4) It's less scary to use multiple inheritance with interface classes, since you
-//      don't need to worry about conflicting implementations ("just" conflicting interface names)
-// NAMING: I use the 'I' prefix for such classes
-class IInputRule
+//## CInputRule is now the base class for all my input rules
+//  It implements the bookkeeping part of input rules, and asks deriving
+//  classes (=the concrete input rules) to implement the event handling functions.
+class CInputRule
 {
 public:
-    // Constructor and destructor are defaulted
-    IInputRule() = default;
+    // Default constructor deleted: We need the rule ID
+    CInputRule() = delete;
+    CInputRule(const QString& ruleId);
+
     // Destructor must be virtual, so derived classes will be destroyed completely when deleted
     //  from the base class pointer
-    virtual ~IInputRule() = default;
+    virtual ~CInputRule() = default;
 
     // Interface for handling events
+    // These must be implemented by deriving classes
     virtual bool handleSinglePointEvent(QSinglePointEvent& event, const CInputInfo& inputInfo) = 0;
     virtual bool handleKeyEvent(QKeyEvent& event, const CInputInfo& inputInfo) = 0;
 
-    // Interface for enabling and disabling input rules
-    virtual bool isDisabled() const = 0;
-    virtual void setDisabled(const bool bArg) = 0;
-    // Interface for getting the rule ID
-    virtual QString getRuleId() const = 0;
+    bool isDisabled() const;
+    void setDisabled(const bool bArg);
+    QString getRuleId() const;
+private:
+    bool m_bDisabled{false};
+    const QString m_RuleId;
 };
 
 #endif // INPUTRULE_H

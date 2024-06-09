@@ -13,7 +13,7 @@ class QKeyEvent;
 
 // Sometimes, giving a special type a name improves readability
 // That's where the 'using' declaration comes in handy
-using IOwnedInputRulePtr = std::unique_ptr<IInputRule>;
+using IOwnedInputRulePtr = std::unique_ptr<CInputRule>;
 
 //## CInputRuleManager owns and manages a number of input rules
 //  Each input rule responds to UI events to implement a specific feature
@@ -26,7 +26,7 @@ class CInputRuleManager
 {
 public:
     // When we append a new input rule, we have to pass ownership to the input rule manager
-    void appendInputRule(std::unique_ptr<IInputRule> pInputRule);
+    void appendInputRule(std::unique_ptr<CInputRule> pInputRule);
 
     // We can enable / disable rules through their rule ID
     void setRuleDisabled(const QString& ruleId, bool bDisabled);
