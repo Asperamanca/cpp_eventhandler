@@ -1,4 +1,5 @@
 # Type Erasure
+TODO: Update
 As far as the big structure is concerned, this is a "detail improvement". But we use quite a few coding tricks to make future extension easier and smoother. The additions are quite complex code - but the complexity is contained in a small area of code.
 ## Improvements
 ### We no longer need dummies for event functions we don't need
@@ -10,11 +11,11 @@ All events are now passed anonymously to CInputRuleManager, the distinction by e
 ## Dependencies
 Structurally, this is very similar to our previous refinement.
 ### Initialization
-![05_dependency_typeerasure_init](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/9fa785c4-8c46-42f6-9ad4-24fb3650fdfe)
+![06_dependency_typeerasure_init](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/9fa785c4-8c46-42f6-9ad4-24fb3650fdfe)
 
 The only noticable change is that the new input rule (inputrule.cpp) now needs the event handlers (eventhandler.h), where before our input rule base class in abstractinputrule.cpp needed inputrule.h. What the diagram does not show: The dependency from abstractinputrule to inputrule was inheritance (Is-A), whereas the new dependency from inputrule to eventhandler is composition (Has-A). This enables us to manage instances of the new CInputRule object by value.
 ### Runtime
-![05_dependency_typeerasure_runtime](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/a7a170d1-421d-4196-86fc-98a66180e439)
+![06_dependency_typeerasure_runtime](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/a7a170d1-421d-4196-86fc-98a66180e439)
 
 In addition to the change mentioned above, we also created CEventInfo (eventinfo.cpp) to simplify passing event information to the input rules.
 ## Where to go from here
