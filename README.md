@@ -21,7 +21,7 @@ Both Lasso and Drag-Move can be turned on and off. In this example, I do this vi
 2. "[Functions](02_functions/FUNCTIONS.md)": Everything is still in a single file, but at least separated into functions
 3. "[Classes](03_classes/CLASSES.md)": Things get split up into multiple files, but I don't yet use any abstractions to avoid code duplication
 4. "[Inheritance](04_inheritance/INHERITANCE.md)": I use classic inheritance to make some central code more generic and less repetitive
-5. Multi-Inheritance: I use multiple inheritance to gain some flexibility for future code extensions
+5. [Multi-Inheritance](05_multiinheritance/MULTIINHERITANCE.md): I use multiple inheritance to gain some flexibility for future code extensions
 6. "[Type erasure](06_typeerasure/TYPEERASURE.md)": I remove an ugly artifact of the inheritance hierarchy and promote value semantics using a combination of type erasure, multiple inheritance and C++20 concepts
 ## How to read the code
 When reading the code, there are two parts:
