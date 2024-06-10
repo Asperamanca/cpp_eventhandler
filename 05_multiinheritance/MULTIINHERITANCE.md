@@ -7,7 +7,7 @@ No more "dummy function implementations" to satisfy the base class!
 ### We simplified event handling in CWindowEventFilter and the interface of CInputRuleManager
 All events are now treated the same inside CWindowEventFilter, and they are passed to CInputRuleManager using the same function.
 ## Dependencies
-
+TODO
 ## Issues
 ### CInputRule is a weird base class, with some attached dangers
 CInputRule is used as a base class, but works like a concrete class. It can be instantiated on it's own, that that could lead to dangerous copy operations with "slice" the object, almost certainly causing follow-up bugs.
