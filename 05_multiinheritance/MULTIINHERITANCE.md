@@ -1,5 +1,6 @@
 # Multiple Inheritance
-
+Our event handlers can finally choose exactly which types of events they want to handler. And we achieve this through multiple inheritance - a base class (CInputRule) which also handles the bookkeeping for the input rule, and one interface class per event type. Our input rules now inherit from the base class and any combination of event handler interfaces.
+We also did some improvements getting the events into CInputRuleManager.
 ## Improvements
 ### Event handlers can now implement exactly the event types they need
 No more "dummy function implementations" to satisfy the base class!
