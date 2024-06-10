@@ -22,10 +22,11 @@ private:
     //  it no longer "is an" event handler.
     // "Has-a"-relationships (also called composition) are in general more flexible
     //  to use than "is-a"-relationships, which are also called inheritance.
-    // That said, you still need to use both in your designs, depending on what
+    // That said, you still should to use both in your designs, depending on what
     //  you try to achieve. Many powerful design patterns use some combination of both.
+    // Take a look at the cpp file for some improvements...
     //
-    // Let's head over to inputrulemanagerfactory.cpp, and see
+    // ...then head over to inputrulemanagerfactory.cpp, and see
     //  how the new CInputRule is created...
     std::vector<CInputRule> m_InputRules;
 };

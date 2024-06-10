@@ -3,9 +3,6 @@
 
 #include <QString>
 #include "eventhandler.h"
-// #include <QSinglePointEvent>
-// #include <QKeyEvent>
-// #include "inputinfo.h"
 class QSinglePointEvent;
 class QKeyEvent;
 
@@ -15,7 +12,7 @@ class CInputInfo;
 //  This code follows the pattern of an "owning type erasure" as described in
 //  Klaus Iglberger's book "C++ Software Design"
 //
-// First we define an interface class with some familiar fuction names: It can handle
+// First we define an interface class with some familiar function names: It can handle
 //  single point events and key events. The event type distinction we removed in
 //  CWindowEventHandler and CInputRuleManager re-emerges here.
 // Important: This is a pure interface class that does not know anything about the actual event handler.
@@ -26,9 +23,8 @@ public:
     virtual ~IInputRuleEventHandlerConcept() = default;
     // "clone" is a common pattern for base classes to be copyable in some way
     //  It's not possible to just call the copy constructor of a base class, it can't
-    //  even know what data members it would need to copy (that depends on the derived class(es)
-    // Copyable base classes are dangerous anyway, they invite bugs called "slicing", where
-    //  you actually copy only part of an object, the rest is garbage.
+    //  even know what data members it would need to copy (that depends on the derived class(es))
+    // Copyable base classes are dangerous anyway ("slicing"), as discussed in our previous refinement.
     // The clone function will be implemented in each derived class to return a true copy
     //  of that derived class
     virtual std::unique_ptr<IInputRuleEventHandlerConcept> clone() const = 0;
@@ -40,7 +36,8 @@ public:
 // CInputRuleOwningEventHandlerModel implements our interface class IInputRuleEventHandlerConcept
 // It is a template class, because our event handler could be any combination of single point event handler,
 //  key event handler or both. That's just three types, but imagine adding touch events, enter/leave events and
-//  drag-drop events. That alone would be 31 possible combinations, so it makes sense to write a template for it.
+//  drag-drop events. That alone would be 31 possible combinations (resulting in up to 31 different types),
+//  so it makes sense to write a template for it.
 template<class TEventHandler>
 class CInputRuleOwningEventHandlerModel : public IInputRuleEventHandlerConcept
 {
@@ -48,7 +45,7 @@ public:
     CInputRuleOwningEventHandlerModel(TEventHandler eventHandler);
     ~CInputRuleOwningEventHandlerModel() override = default;
 
-    // Here we implement the interface  of IInputRuleEventHandlerConcept
+    // Here we implement the interface of IInputRuleEventHandlerConcept
     std::unique_ptr<IInputRuleEventHandlerConcept> clone() const override;
     bool handleSinglePointEvent(const QSinglePointEvent& event, const CInputInfo& inputInfo) override;
     bool handleKeyEvent(const QKeyEvent& event, const CInputInfo& inputInfo) override;
@@ -68,7 +65,7 @@ template<class TEventHandler>
 std::unique_ptr<IInputRuleEventHandlerConcept> CInputRuleOwningEventHandlerModel<TEventHandler>::clone() const
 {
     // Cloning simply creates a new std::unique_ptr with a new CInputRuleOwningEventHandlerModel
-    //  The contend is created using the (implicit) copy constructor of CInputRuleOwningEventHandlerModel
+    //  The content is created using the (implicit) copy constructor of CInputRuleOwningEventHandlerModel
     //  Inside that copy constructor, the TEventHandler (m_EventHandler) is copied, too.
     // How can TEventHandler be copyable, although it derives from one or multiple classes?
     //  In this case the inheritance is not an issue: The base classes are just interfaces, which
@@ -80,7 +77,7 @@ std::unique_ptr<IInputRuleEventHandlerConcept> CInputRuleOwningEventHandlerModel
 template<class TEventHandler>
 bool CInputRuleOwningEventHandlerModel<TEventHandler>::handleSinglePointEvent(const QSinglePointEvent& event, const CInputInfo& inputInfo)
 {
-    // So far, all three event handlers we implemented also handles single point events.
+    // So far, all three event handlers we implemented also handle single point events.
     //  But in the future, that might be different. So what do we do?
     // We cannot simply call the event handler function "handleSinglePointEvent", because
     //  it would not compile for types that don't support it.
@@ -110,8 +107,13 @@ bool CInputRuleOwningEventHandlerModel<TEventHandler>::handleSinglePointEvent(co
 //  would have to figure out what exactly they have to provide in order for the concept
 //  to be fulfilled, with no guidance:
 //  If you implement the wrong function, everything will compile, but it won't work.
-// Also, if your argument is "one less virtual function call", then this type erasure
-//  implementation (which relies on a virtual function call) is probably not for you.
+//  (This could be worked around with e.g. a tag "static consteval bool sm_bIsSinglePointEventHandler = true;"
+//  inside the event handler class, which enables the call to "handleSinglePointEvent", therefore at least
+//  allowing the developer of the event handler to explicitly opt in to certain event types, and get better
+//  compiler errors).
+// Hoever, if your argument for avoiding the interface event classes is "one less virtual function call",
+//  then this type erasure implementation (which relies on a virtual function call)
+//  is probably not for you anyway.
 //  Also, at least in theory, the compiler should be able to figure out that this
 //  function call can be devirtualized, because we are running the call on a stored value.
 //  Because it's a stored value, m_EventHandler IS EXACTLY TEventHandler, and not some
@@ -154,7 +156,7 @@ public:
     // It's usually not cool to have a copy constructor, but not a copy assignment operator
     //  That's because the behavior of such a class can be surprising
     // This, however, is a private class that is not meant to be used anywhere but here,
-    //  so I can get away with just implementing what is actually needed
+    //  so I can get away with just implementing what I actually need
     CInputRulePrivate& operator=(const CInputRulePrivate& other) = delete;
     CInputRulePrivate(CInputRulePrivate&& other) = default;
     CInputRulePrivate& operator=(CInputRulePrivate&& other) = default;
@@ -171,5 +173,7 @@ CInputRulePrivate::CInputRulePrivate(TEventHandler eventHandler, QString ruleId)
       m_RuleId(ruleId)
 {
 }
+
+//## Let's finish up in inputrule.cpp!
 
 #endif // INPUTRULEPRIVATE_H

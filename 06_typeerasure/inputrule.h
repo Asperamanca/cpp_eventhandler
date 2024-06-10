@@ -30,13 +30,21 @@ public:
     //  and a destructor (for the sake of completeness - see also: https://en.cppreference.com/w/cpp/language/rule_of_three)
     CInputRule();
     CInputRule(const CInputRule& other);
-    CInputRule& operator=(const CInputRule& other);
+    CInputRule& operator=(CInputRule other);
     // In case you haven't seen one of those before: This is a move constructor
     //  and the '&&' is a rvalue reference declarator
     // If you want to know more about that, look up "C++ value categories"
     CInputRule(CInputRule&& other) = default;
     // This is the move assignment operator, the companion to the move constructor
     CInputRule& operator=(CInputRule&& other) = default;
+
+    // A swap function is a good companion to the complete battery of constructors
+    //  and assignment operators. Many algorithms can work in terms of swapping
+    //  two instances, for example the defaulted move constructor may do so.
+    // Also, we use the hidden friend idiom to enable ADL (argument-dependent lookup)
+    //  If you want to know more, see e.g. https://www.modernescpp.com/index.php/argument-dependent-lookup-and-hidden-friends/
+    friend void swap(CInputRule& left, CInputRule& right) noexcept;
+
     ~CInputRule() = default;
 
     bool isDisabled() const;
@@ -44,8 +52,12 @@ public:
 
     QString getRuleId() const;
 
+    // The public interface to the outside world for handling any kind of event
     bool handleEvent(const CInputInfo& inputInfo);
 private:
+    // Notice that I hold a pointer, but I make my class behave
+    //  like a value in any meaningful sense by making sure that
+    //  copying and moving CInputRule will do "the expected thing".
     std::unique_ptr<CInputRulePrivate> m_pPrivate;
 };
 

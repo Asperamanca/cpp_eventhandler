@@ -6,20 +6,28 @@
 CInputRule::CInputRule()
     : m_pPrivate(std::make_unique<CInputRulePrivate>())
 {
-
 }
-
 
 CInputRule::CInputRule(const CInputRule& other)
     : m_pPrivate(CInputRulePrivate::clone(other.m_pPrivate.get()))
 {
 }
 
-CInputRule& CInputRule::operator=(const CInputRule& other)
+CInputRule& CInputRule::operator=(CInputRule other)
 {
-    CInputRule copy(other);
-    std::swap(m_pPrivate, copy.m_pPrivate);
+    // This is an implementation of the copy-and-swap idiom.
+    //  The copy already happened when I passed the parameter "other" by value
+    //  Now I do a swap...and the copy of "other" becomes...me
+    // As opposed to other ways to implement the copy constructor, it is safe
+    //  not to check for self-assignment, because I always work with two distinct
+    //  object instances - in the case of self-assignment with 'this' and a copy of 'this'
+    swap(*this, other);
     return *this;
+}
+
+void swap(CInputRule& left, CInputRule& right) noexcept
+{
+    std::swap(left.m_pPrivate, right.m_pPrivate);
 }
 
 bool CInputRule::isDisabled() const

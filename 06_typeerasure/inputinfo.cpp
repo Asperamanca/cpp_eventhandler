@@ -4,8 +4,13 @@
 
 CInputInfo::CInputInfo(const CEventInfo& eventInfo)
     : m_EventInfo(eventInfo),
+      m_pItemUnderCursor{determineItemUnderCursor(eventInfo)},
       m_pSinglePointEvent(dynamic_cast<const QSinglePointEvent*>(eventInfo.m_pEvent)),
       m_pKeyEvent(dynamic_cast<const QKeyEvent*>(eventInfo.m_pEvent))
+      // This code may be slightly slower than in our previous refinement: I now ALWAYS do
+      //    two dynamic_casts, instead of maybe only one if the first one succeeds
+      //    Here, simplicity seems more important until profiling shows that this optimization
+      //    is actually relevent.
 {
 }
 
@@ -21,11 +26,7 @@ QPointer<QQuickItem> CInputInfo::getViewRootObject() const
 
 QPointer<QQuickItem> CInputInfo::getItemUnderCursor() const
 {
-    if ( ! m_opCachedItemUnderCursor.has_value())
-    {
-        m_opCachedItemUnderCursor = determineItemUnderCursor(m_EventInfo);
-    }
-    return m_opCachedItemUnderCursor.value();
+    return m_pItemUnderCursor;
 }
 
 const QSinglePointEvent* CInputInfo::getSinglePointEvent() const

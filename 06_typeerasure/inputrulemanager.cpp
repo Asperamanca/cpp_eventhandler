@@ -41,6 +41,9 @@ bool CInputRuleManager::passEventThroughRules(const CEventInfo& eventInfo)
 {
     auto enabledRules = getEnabledRules(m_InputRules);
     CInputInfo inputInfo(eventInfo);
+    //## IMPROVEMENT: Single loop, simple code
+    // The dynamic_casts for event types have moved into CInputInfo, so
+    //  maybe take a quick look there
     for(auto& rule : enabledRules)
     {
         if (rule.handleEvent(inputInfo))

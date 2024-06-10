@@ -16,8 +16,9 @@
 // 2) The loop over input rule inside CInputRuleManager repeats for each event type
 // 3) We also need to dynamic_cast our input rule types a lot
 //
-// Let's start in inputrulemanager.h/cpp to see the changes
-// When done, you can return to the end of this file for a wrap-up.
+// Let's start in inputrulemanager.h to see the changes
+//
+// At the end, you can return to the end of this file for a wrap-up.
 
 int main(int argc, char *argv[])
 {
@@ -51,11 +52,11 @@ int main(int argc, char *argv[])
 //  And also, our changes will reduce the ADDITIONAL complexity required to add
 //  new event handlers and event handler types.
 // For a very simple example that's not expected to change anymore, it's probably
-//  best to use the simplest approach possible. Here, I would probably go for
-//  "Functions" or maybe even "The big switch".
+//  best to use the simplest approach possible. Here, I would probably go for "Functions"
+//  as it (at least) cleanly separates the different event handlers.
 // If you are at the other end of the spectrum, and expect your code to live long
 //  and grow bigger and bigger, you need something that can reduce added complexity.
-//  Here, the final "Type erasure" soltion is likely better.
+//  Here, the final "Type erasure" or "Multiple inheritance" soltions are likely better.
 // If you are somewhere in-between, you may choose the "Inheritance" solution.
 //  This is what I mean when I write "it depends...".
 //
