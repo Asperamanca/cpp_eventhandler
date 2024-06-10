@@ -10,6 +10,7 @@ Now, rules are simply inserted into a container in order, and then called from t
 ### Passing parameters to event handler functions is now safer
 Thanks to CInputInfo, we have more readable code and less danger of mixing up parameters of the same type.
 ## Dependencies
+**TODO: Update dependency diagram**
 This refinement also brings a new level of separation to our dependency diagram: We can now look at two parts of the program separately:
 - Initialization: The phase where we set up and prepare our data structures
 - Runtime: where we use those data structures to get things done
