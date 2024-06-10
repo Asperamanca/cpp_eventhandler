@@ -23,7 +23,7 @@ The blue dashed arrows show the path of creating our instances.
 
 At runtime, our dependency diagram is (almost) completely separated into a left half (main, windoweventfilter, and inputrulemanager) and a right half (the input rules with abstractinputrule). They are only connected by their common dependency on inputrule.h (CInputRule) and inputinfo (CInputInfo). And both of those are extremely simple files with few dependencies.
 ## Issues
-### The input rule (base class and derived class combined) still has more than one job
-We have separated concerns somewhat between CAbstractInputRule (taking care of input rule bookkeeping) and the various input rule implementations (taking care of events). But in the final class, those things are again baked together, and hard to separate in the future. In general, it is typically not good to use inheritance to avoid code duplication (rather use composition), but that's what we did here.
+### The CWindowEventFilter still needs to know about all the event types
+As it is, the CWindowEventFilter handles each type of event separately, and passes it to the CInputRuleManager via a separate interface. Can't we simplify that?
 ### We have to implement dummy functions for events we don't need
 This can become confusing and introduces dead code.
