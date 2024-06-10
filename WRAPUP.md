@@ -6,8 +6,8 @@ In every refinement, we actually increased the total amount of code. In most ref
 So when I say "it depends..." you fairly ask "...on what?"
 Let me try to answer in this way:
 In each refinement, the code (as it is) has become more complex IN TOTAL. At the same time, we have often reduced complexity LOCALLY. And also, our changes will reduce the ADDITIONAL complexity required to add new event handlers and event handler types.
-- For a very simple example that's not expected to change anymore, it's probably best to use the simplest approach possible. Here, I would probably go for "Functions" or maybe even "The big switch".
-- If you are at the other end of the spectrum, and expect your code to live live and grow bigger and bigger, you need something that can reduce added complexity. Here, the final "Type erasure" soltion is likely better.
+- For a very simple example that's not expected to change anymore, it's probably best to use the simplest approach possible. Here, I would probably go for "Functions".
+- If you are at the other end of the spectrum, and expect your code to live live and grow bigger and bigger, you need something that can reduce added complexity. Here, the final "Type erasure" or maybe "Multiple inheritance" soltions are likely better.
 - If you are somewhere in-between, you may choose the "Inheritance" solution.
 
 This is what I mean when I write "it depends...".
