@@ -24,7 +24,7 @@ Refactoring should have clear goals. For me, those are (in order of most importa
 3. Make the code easy to test.
 4. Provide a solid level of performance (without over-the-top performance optimizations)
 
-### Refinement steps
+## Refinement steps
 1. "[The big switch](01_bigSwitch/BIGSWITCH.md)": This is where we start. Everything is in a single function in a big switch
 2. "[Functions](02_functions/FUNCTIONS.md)": Everything is still in a single file, but at least separated into functions
 3. "[Classes](03_classes/CLASSES.md)": Things get split up into multiple files, but I don't yet use any abstractions to avoid code duplication
