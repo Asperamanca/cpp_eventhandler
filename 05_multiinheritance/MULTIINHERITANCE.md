@@ -14,6 +14,7 @@ The only change visible on the dependency level is the separation of inputrule.c
 ### Runtime
 ![05_dependency_multiinheritance_runtime_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/a6870249-7843-45b5-8383-74bd1aec5b05)
 
+In addition to the change mentioned above, we also created CEventInfo (eventinfo.cpp) to simplify passing event information to the input rules.
 ## Issues
 ### CInputRule is a weird base class, with some attached dangers
 CInputRule is used as a base class, but works like a concrete class. It can be instantiated on it's own, that that could lead to dangerous copy operations with "slice" the object, almost certainly causing follow-up bugs.
