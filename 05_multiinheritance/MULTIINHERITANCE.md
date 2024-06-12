@@ -7,6 +7,7 @@ No more "dummy function implementations" to satisfy the base class!
 ### We simplified event handling in CWindowEventFilter and the interface of CInputRuleManager
 All events are now treated the same inside CWindowEventFilter, and they are passed to CInputRuleManager using the same function.
 ## Dependencies
+The only change visible on the dependency level is the separation of inputrule.cpp and eventhandler.h
 ### Initialization
 ![05_dependency_multiinheritance_init_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/8a65fb6e-4729-4d24-a99f-2139e39deb5c)
 
