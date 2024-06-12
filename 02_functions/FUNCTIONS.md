@@ -12,3 +12,5 @@ Not much changed, but we see that each function only uses one or at most two gre
 ## Issues
 ### Class members for different concerns
 Most class members in CWindowEventFilter are only used in one or two functions. This is a sign of low cohesion.
+## Next
+[Classes](../03_classes/CLASSES.md)
