@@ -29,4 +29,4 @@ As it is, the CWindowEventFilter handles each type of event separately, and pass
 ### We have to implement dummy functions for events we don't need
 This can become confusing and introduces dead code.
 ## Next
-[Multiple inheritance](05_multiinheritance/MULTIINHERITANCE.md)
+[Multiple inheritance](../05_multiinheritance/MULTIINHERITANCE.md)
