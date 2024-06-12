@@ -11,4 +11,5 @@ CWindowEventFilter::eventFilter is already a long function, and we haven't even 
 ### Mixing concerns
 Inside CWindowEventFilter::eventFilter, we mix lines of code which handle different functionality: A few lines handle lasso selection, then a few lines handle drag-move,...
 This makes it hard to read and understand a single feature. E.g. if you are looking for a bug in drag-move, you always have to skip the lines not relevant to it
-[##Next](../02_functions/FUNCTIONS.md)
+## Next
+[Functions](../02_functions/FUNCTIONS.md)
