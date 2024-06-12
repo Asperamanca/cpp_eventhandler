@@ -10,10 +10,10 @@ All events are now passed anonymously to CInputRuleManager, the distinction by e
 ## Dependencies
 We have renamed "input rules" to "event handlers", and cleaned up their dependencies on both inputrule.cpp and eventhandler.h. They now only depend on eventhandler.h only. Also, inputrulemanager.cpp no longer depends on eventhandler.h directly (only through inputrule.cpp, which now has a private companion file)
 ### Initialization
-![06_dependency_typeerasure_init_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/b96a500b-1034-4a44-9e04-d3ff18a4c270)
+![06_dependency_typeerasure_init](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/75f24b61-e8c0-43fb-a9b2-ecbf3adedafd)
 
 ### Runtime
-![06_dependency_typeerasure_runtime_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/84cfce74-6557-4a0a-9cb4-6597e402000d)
+![06_dependency_typeerasure_runtime](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/697c70ac-9fbe-4bcd-8b14-40139a9d69fe)
 
 The inputrule.cpp is no longer a base class, and because of the new design, we can now use it as a value (and are no longer forced to handle it via pointer). This simplifies managing the input rules a bit.
 ## Where to go from here
