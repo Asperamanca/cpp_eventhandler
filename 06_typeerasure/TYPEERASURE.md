@@ -1,5 +1,4 @@
 # Type Erasure
-TODO: Update
 As far as the big structure is concerned, this is a "detail improvement". But we use quite a few coding tricks to make future extension easier and smoother. The additions are quite complex code - but the complexity is contained in a small area of code.
 ## Improvements
 ### We no longer need dummies for event functions we don't need
