@@ -10,20 +10,19 @@ Now, rules are simply inserted into a container in order, and then called from t
 ### Passing parameters to event handler functions is now safer
 Thanks to CInputInfo, we have more readable code and less danger of mixing up parameters of the same type.
 ## Dependencies
-**TODO: Update dependency diagram**
-
 This refinement also brings a new level of separation to our dependency diagram: We can now look at two parts of the program separately:
 - Initialization: The phase where we set up and prepare our data structures
 - Runtime: where we use those data structures to get things done
 This is good news: It has become much easier to re-use parts of the runtime in a different application, and just replace the initialization part. This could also apply to unit tests.
 ### Initialization
-![04_dependency_inheritance_init](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/5b65759a-ef81-4c16-b5ae-45b782fdfc9f)
+![04_dependency_inheritance_init_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/585dfa4f-bbb0-4f79-b92b-725b9ee464ec)
 
 The blue dashed arrows show the path of creating our instances. 
 ### Runtime
-![04_dependency_inheritance_runtime](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/cd95f3fc-7353-4e6f-b730-58e1fc3fb508)
+![04_dependency_inheritance_runtime_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/7d145b3c-9155-4ea8-9234-928c8b8def1a)
 
-At runtime, our dependency diagram is (almost) completely separated into a left half (main, windoweventfilter, and inputrulemanager) and a right half (the input rules with abstractinputrule). They are only connected by their common dependency on inputrule.h (CInputRule) and inputinfo (CInputInfo). And both of those are extremely simple files with few dependencies.
+
+At runtime, our dependency diagram is (almost) completely separated into a left half (main, windoweventfilter, and inputrulemanager) and a right half (the input rules). They are only connected by their common dependency on inputrule.cpp (CInputRule) and inputinfo.cpp (CInputInfo). And both of those are extremely simple files with few dependencies.
 ## Issues
 ### The CWindowEventFilter still needs to know about all the event types
 As it is, the CWindowEventFilter handles each type of event separately, and passes it to the CInputRuleManager via a separate interface. Can't we simplify that?
