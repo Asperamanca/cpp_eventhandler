@@ -28,3 +28,5 @@ At runtime, our dependency diagram is (almost) completely separated into a left 
 As it is, the CWindowEventFilter handles each type of event separately, and passes it to the CInputRuleManager via a separate interface. Can't we simplify that?
 ### We have to implement dummy functions for events we don't need
 This can become confusing and introduces dead code.
+## Next
+[Multiple inheritance](05_multiinheritance/MULTIINHERITANCE.md)
