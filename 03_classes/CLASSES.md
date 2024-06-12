@@ -16,3 +16,5 @@ CWindowEventFilter is tightly coupled to the input rules. It knows all their det
 Also, this makes it hard to customize what input rules to use, e.g. for testing.
 ### Event handler functions get two parameters of the same type
 This is dangerous, because we could easily mix them up.
+## Next
+[Inheritance](../04_inheritance/INHERITANCE.md)
