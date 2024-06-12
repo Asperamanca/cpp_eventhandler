@@ -9,10 +9,10 @@ All events are now treated the same inside CWindowEventFilter, and they are pass
 ## Dependencies
 We separated inputrule.cpp and eventhandler.h, and also created CEventInfo (eventinfo.cpp) to simplify passing event information to the input rules.
 ### Initialization
-![05_dependency_multiinheritance_init_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/8a65fb6e-4729-4d24-a99f-2139e39deb5c)
+![05_dependency_multiinheritance_init_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/f414141d-a22d-48b3-931e-506e7af52ea0)
 
 ### Runtime
-![05_dependency_multiinheritance_runtime_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/a6870249-7843-45b5-8383-74bd1aec5b05)
+![05_dependency_multiinheritance_runtime_result](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/d84a65e0-13bd-46d8-bbf5-ee5a0fa0e84d)
 
 ## Issues
 ### CInputRule is a weird base class, with some attached dangers
