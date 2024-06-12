@@ -21,3 +21,5 @@ CInputRule is used as a base class, but works like a concrete class. It can be i
 That shouldn't be necessary. It's one more place in the code we must not forget when extending the event types.
 ### We dynamic_cast our event handlers a lot
 For each event, we do one dynamic_cast per event handler (less if an event handler consumes the event). This might not scale so well.
+## Next
+[Type erasure](../06_typeerasure/TYPEERASURE.md)
