@@ -46,6 +46,17 @@ QML is a declarative language in a way similar to HTML. You can basically state:
 - This root object may have children, and they in turn may have children.
  If I start at the root object, I can recursively walk the whole tree to find every visual object.
 Everything else is explained as we go along.
+### Doesn't Qt offer a simpler way to implement this?
+Yes and no.
+Qt offers a number of event handlers that you can use directly in QML. Examples are [DragHandler]([url](https://doc.qt.io/qt-6/qml-qtquick-draghandler.html)), [PointHandler]([url](https://doc.qt.io/qt-6/qml-qtquick-pointhandler.html)) or [MouseArea]([url](https://doc.qt.io/qt-6/qml-qtquick-mousearea.html)). In all the small examples of QML-based GUI code, you will find those, not the approach to handling events in C++ that I use.
+So is this example even realistic?
+Yes it is. While implementing event handling for a larger product, I found several deficiencies in the pure QML-based approach:
+- At least early in the Qt 6 product cycle, many of the event handlers had bugs. You can find plenty of examples [here]([url](https://bugreports.qt.io/issues/?jql=component%20%3D%20%22Quick%3A%20Mouse%20Touch%20and%20Tablet%20input%22)).
+- If you use the higher-level handler types (such as HoverHandler or DragHandler), the behavior is not always customizable the way you want.
+- If you use the lower-level handler types (such as[ MultiPointTouchArea]([url](https://doc.qt.io/qt-6/qml-qtquick-multipointtoucharea.html))), you have the choice of implementing the behavior right in QML using JavaScript, or pass raw event data to C++.
+- Implementing behavior in JavaScript is a choice you can make. I prefer to implement logic in C++, because I have better tooling to catch errors (and, I admit, am much more comfortable coding C++ than JavaScript). If you want to customize behavior for a component, you need to add even more logic to JavaScript, or make it possible to replace the whole handling component. More complexity goes into the QML/JavaScript part of the program. Again, a choice you could make, but not mine
+- Implementing behavior in C++ would mean that you need to pass all the raw event data from QML to C++ (with nicities such as getting enumerations as int, and having to cast them to the correct enum type on the receiver side)
+Capturing the events on C++ requires more boilerplate up front, but gives you full access to all the detail information of all event, in C++ types. GUI and event handling behavior are completely separate (there's no other way, since they are written in different languages), which gives you more flexibility to mix and match GUI and behavior as you need. All of that can be implemented in QML/JavaScript as well, but I would argue that, at scale, the C++ implementation becomes cheaper to write and maintain.
 ## Caveats
 - For readability, I don't use namespaces. In a real project, this could easily cause naming conflicts
 - I am not a cmake expert. Things work, but please don't take my cmake files as an example on "how to do it right"
