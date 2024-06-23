@@ -1,7 +1,7 @@
 # Big Switch
 We start with implementing everything in a big switch.
-(Isn't that unrealistic?
-No, I have seen plenty such code. When you start small, a switch is a pretty natural way to start. And I have seen plenty of code (mine included) where there never seemed to be time or will to refactor the growing switch into something more suitable.)
+## Isn't that unrealistic?
+No, I have seen plenty such code. When you start small, a switch is a pretty natural way to start. And I have seen plenty of code (mine included) where there never seemed to be time or will to refactor the growing switch into something more suitable.
 ## Dependency diagram
 ![01_dependency_bigswitch](https://github.com/Asperamanca/cpp_eventhandler/assets/59048940/fe5a87c6-007d-49e1-91e3-bf3711aab7db)
 
