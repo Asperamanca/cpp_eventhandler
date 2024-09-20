@@ -20,7 +20,7 @@ This is what I mean when I write "it depends...".
 - [Klaus Iglberger - C++ Software Design](https://www.oreilly.com/library/view/c-software-design/9781098113155/)
 
 ## Further material
-- What are regular types, and why should I care? - "Regular, Revisited" by Victor Ciura
-- Why should I care about value semantics? - "Value Semantics: Safety, Independence, Projection & Future of Programming" by Dave Abrahams
-- Advice on type-safe programming: "Typically C++, But why?" by Björn Fahller
-- Just generally recommended: "Coping with other people's C++ code" by Laura Savino
+- What are regular types, and why should I care? - ["Regular, Revisited" by Victor Ciura](https://www.youtube.com/watch?v=9ilirLg9TzM)
+- Why should I care about value semantics? - ["Value Semantics: Safety, Independence, Projection & Future of Programming" by Dave Abrahams](https://www.youtube.com/watch?v=QthAU-t3PQ4)
+- Advice on type-safe programming: ["Typically C++, But why?" by Björn Fahller](https://www.youtube.com/watch?v=ZJKWNBcPHaQ)
+- Just generally recommended: ["Coping with other people's C++ code" by Laura Savino](https://www.youtube.com/watch?v=qyz6sOVON68)
