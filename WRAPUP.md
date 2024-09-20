@@ -13,7 +13,11 @@ In each refinement, the code (as it is) has become more complex IN TOTAL. At the
 This is what I mean when I write "it depends...".
 
 ## Material listed in code
-TODO
+- [Aggregate Initialization](https://en.cppreference.com/w/cpp/language/aggregate_initialization)
+- ["A Tour of C++ Recognized User Type Categories" by Nina Ranns](https://www.youtube.com/watch?v=pdoUnvTwnr4)
+- [Rule of three](https://en.cppreference.com/w/cpp/language/rule_of_three)
+- [Argument dependent lookup and hidden friends](https://www.modernescpp.com/index.php/argument-dependent-lookup-and-hidden-friends/)
+- [Klaus Iglberger - C++ Software Design](https://www.oreilly.com/library/view/c-software-design/9781098113155/)
 
 ## Further material
 - What are regular types, and why should I care? - "Regular, Revisited" by Victor Ciura
